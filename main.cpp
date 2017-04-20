@@ -1,22 +1,37 @@
 #include <string>
 #include <fstream>
 #include <iostream>
+#include <sstream>
+#include "pos.hpp"
 
-// #include ""
+using namespace std;
 
 int main()
 {
-  std::ifstream ifs("training.pos");
+  ifstream ifs("training.pos");
   if(ifs.fail()) {
-    std::cout << "file open failed" << std::endl;
+    cout << "file open failed" << endl;
     return 0;
   }
 
-  std::string line;
+  string line;
+  string ret;
+  stringstream ss;
   int count = 0;
- while(std::getline(ifs,line)){
-    std::cout << line << std::endl << count << std::endl;
-    count ++;
+
+  while(getline(ifs,line)){
+    ss << line;
+    while(!ss.eof()){
+      ss >> ret;
+      cout << get_word(ret) << " / " << get_POS(ret) << endl;
+    }
+    ss.clear();
+
+
+    //回数制限.for debug
+    count++;
+    if(count > 2) break;
+
   }
 
   return 0;

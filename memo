@@ -1,0 +1,6 @@
+4/20
+POS.posを作った（pos一覧？）
+記号系はmarkというものにまとめてしまう？
+→develop時には読み込んだ文字をそのまま返すようなしようにすること
+
+stringで受け取ってword/POSを取り出すget_word/get_POSを作った
